@@ -9,7 +9,6 @@ groblja. Navedeni su TE, TP, kardinaliteti i obeležja pomoću kojih je opisana 
 1. Groblje ima najmanje jednu kapelu. Kapela pripada tačno jednom groblju.
 1. Groblje sadrži nijedno ili više grobnih mesta. Jedno grobno mesto pripada tačno jednom groblju.
 1. Grobno mesto može biti kovčeg ili urna.
-1. U kapeli jedan ili više članova porodice primaju saučešće. Članovi porodice primaju saučešće u tačno jednoj kapeli.
 1. Čovek je član jedne ili više porodica. Porodica je sadržana od jednog ili više čoveka.
 1. IMKU (Izvod iz matične knjige umrlih) se odnosi na tačno jednog čoveka. Jedan čovek može da ima nijedan (ako je živ) ili jedan IMKU.
 1. IMKU se odnosi na nijedno ili jedno grobno mesto. Jedno grobno mesto se odnosi na tačno jedan IMKU.
