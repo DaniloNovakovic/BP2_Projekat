@@ -25,15 +25,15 @@ groblja. Navedeni su TE, TP, kardinaliteti i obeležja pomoću kojih je opisana 
 | TIP ENTITETA | TIP POVEZNIKA | OBELEŽJA |
 | --- | --- | --- |
 | Groblje | ima, sadrži, se nalazi | groblje_id, naziv |
-| Grobno mesto | is-a, se odnosi, se nalazi | grobno_mesto_id |
+| Grobno mesto | is-a, počiva, se nalazi | grobno_mesto_id |
 | Urna | is-a | kapacitet |
 | Kovceg | is-a | marka_kovcega |
-| IMKU |  se_odnosi | covek_id, vreme_umiranja, slika |
+| IMKU |  počiva, se odnosi | covek_id, vreme_umiranja, slika |
 | Lokacija | se nalazi | lokacija_id, x, y |
-| Kapela | pripada, se nalazi, primaju sucesce | kapela_id, naziv |
-| Covek |  je, sadržan, se odnosi | covek_id, ime, prezime, datum_rodjenja |
-| Clan Porodice | je, sadrzi | id_coveka (npr. preminulog), id_clana_porodice (npr. sestra od preminulog) |   
+| Kapela | sadrži, se nalazi, zauzima | kapela_id, naziv |
+| Covek |  je, se odnosi | covek_id, ime, prezime, datum_rodjenja |
+| Clan Porodice | je, pravi ugovor | id_coveka (npr. preminulog), id_clana_porodice (npr. sestra od preminulog), tip_veze (npr. "sestra") |   
 | Radnik | is-a, je | covek_id, radno_vreme (od-do) |
-| Tehnicko osoblje | is-a | |
-| Sef | is-a, nadzire | |
-| Ugovor | prave ugovor, (zauzima kapelu - Gerund) | id_clana_porodice, id_sefa, tip_sahrane, vreme_sahrane |
+| Tehnicko osoblje | is-a, nadzire | |
+| Sef | is-a, nadzire, ima | |
+| Ugovor | pravi ugovor, (zauzima kapelu - Gerund) | id_clana_porodice, id_sefa, id_kapele, tip_sahrane, vreme_sahrane |
