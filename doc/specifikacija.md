@@ -5,19 +5,19 @@ groblja. Navedeni su TE, TP, kardinaliteti i obeležja pomoću kojih je opisana 
 
 ## Tekstualni opis ER konceptualne šeme baze podataka
 
-1. Groblje ima najmanje jednu kapelu. Kapela pripada tačno jednom groblju.
+1. Groblje ima nijednu ili jednu kapelu. Kapela pripada tačno jednom groblju.
 1. Groblje sadrži nijedno ili više grobnih mesta. Jedno grobno mesto pripada tačno jednom groblju.
 1. Grobno mesto može biti kovčeg ili urna.
-1. Čovek je član jedne ili više porodica. Porodica je sadržana od jednog ili više čoveka.
+1. Čovek je član nijedne ili više porodica. Porodica je sadržana od jednog ili više čoveka.
 1. IMKU (Izvod iz matične knjige umrlih) se odnosi na tačno jednog čoveka. Jedan čovek može da ima nijedan (ako je živ) ili jedan IMKU.
 1. IMKU se odnosi na nijedno ili jedno grobno mesto. Jedno grobno mesto se odnosi na tačno jedan IMKU.
 1. Radnik je tačno jedan čovek. Jedan čovek može, a ne mora da bude radnik.
 1. Radnik može da bude Tehničko osoblje, ili Šef.
-1. Groblje ima tačno jednog šefa. Jedan šef groblja može da bude šef jednog ili više groblja.
-1. Šef groblja nadzire jednog ili više radnika tehničkog osoblja. Radnik tehničkog osoblja ima tačno jednog šefa.
-1. Član porodice pravi ugovor sa tačno jednim šefom. Jedan šef groblja pravi ugovor sa jednim ili više članova porodice.
+1. Groblje ima tačno jednog šefa. Jedan šef groblja može da bude šef nijednog ili više groblja.
+1. Šef groblja nadzire nijednog ili više radnika tehničkog osoblja. Radnik tehničkog osoblja ima nijednog ili jednog šefa.
+1. Član porodice preminulog može da pravi ugovor sa nijednim ili jednim šefom groblja. Jedan šef groblja pravi ugovor sa nijednim ili više članova porodice.
 1. U ugovoru član porodice bira tip sahrane koji može biti: ukopavanje ili kremiranje (`dom(TIP_SAHRANE)={ukopavanje, kremiranje}`)
-1. Član porodice koji je sklopio ugovor sa šefovom zauzima tačno jednu kapelu za primanje saučešća. Jedna kapela može biti zauzeta od nijednog ili jednog člana porodice određen vremenski period.
+1. Član porodice preminulog koji je sklopio ugovor sa šefovom zauzima tačno jednu kapelu za primanje saučešća. Jedna kapela može biti zauzeta od nijednog ili jednog člana porodice određen vremenski period.
 1. Kapela/Groblje/Grobno mesto se nalaze na tačno jednoj lokaciji. Na jednoj lokaciji se može nalaziti nijedna ili jedna Kapela/Groblje/Grobno mesto.
 
 ## Tabelarni prikaz TE/TP i njihovih obeležja
