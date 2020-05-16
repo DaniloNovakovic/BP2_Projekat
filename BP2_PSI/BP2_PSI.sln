@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BP2_PSI", "BP2_PSI\BP2_PSI.csproj", "{06998B16-B92D-49EC-94EC-D7CDDAA6FE4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8DF779D6-621C-463C-8F52-3096A79E28EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Persistance\Persistance.csproj", "{8035C4E1-0A52-432A-86A7-773E9C288FDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06998B16-B92D-49EC-94EC-D7CDDAA6FE4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06998B16-B92D-49EC-94EC-D7CDDAA6FE4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06998B16-B92D-49EC-94EC-D7CDDAA6FE4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06998B16-B92D-49EC-94EC-D7CDDAA6FE4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF779D6-621C-463C-8F52-3096A79E28EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF779D6-621C-463C-8F52-3096A79E28EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF779D6-621C-463C-8F52-3096A79E28EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF779D6-621C-463C-8F52-3096A79E28EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8035C4E1-0A52-432A-86A7-773E9C288FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8035C4E1-0A52-432A-86A7-773E9C288FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8035C4E1-0A52-432A-86A7-773E9C288FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8035C4E1-0A52-432A-86A7-773E9C288FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {271BBED4-2052-4F37-ABCD-354F539DA325}
+	EndGlobalSection
+EndGlobal
