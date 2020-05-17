@@ -11,6 +11,7 @@ namespace Core.Entities
         public long WorkerId { get; set; }
         public Worker Worker { get; set; }
 
+        public long? ManagerId { get; set; }
         public Manager Manager { get; set; }
     }
 }

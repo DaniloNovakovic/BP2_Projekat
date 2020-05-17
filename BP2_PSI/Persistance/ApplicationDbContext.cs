@@ -93,17 +93,17 @@ namespace Persistance
 
         #endregion ctors
 
-        public DbSet<FamilyMember> FamilyMembers { get; set; }
-        public DbSet<Person> Persons { get; set; }
-        public DbSet<GraveSite> GraveSites { get; set; }
         public DbSet<DeathRecord> DeathRecords { get; set; }
-        public DbSet<Chapel> Chapels { get; set; }
-        public DbSet<Coffin> Coffins { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<Person> Persons { get; set; }
         public DbSet<Worker> Workers { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<TechnicalStaff> TechnicalStaff { get; set; }
+        public DbSet<GraveSite> GraveSites { get; set; }
+        public DbSet<Chapel> Chapels { get; set; }
         public DbSet<Contract> Contracts { get; set; }
+
+        public DbSet<Coffin> Coffins { get; set; }
         public DbSet<Urn> Urns { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

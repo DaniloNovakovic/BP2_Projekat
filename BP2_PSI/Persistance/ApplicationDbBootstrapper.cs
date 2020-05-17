@@ -17,6 +17,7 @@ namespace Persistance
         public void Initialize()
         {
             _context.Database.CreateIfNotExists();
+
             if (!_context.Managers.Any())
             {
                 Seed();

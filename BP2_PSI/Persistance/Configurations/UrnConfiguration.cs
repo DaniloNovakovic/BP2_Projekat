@@ -3,13 +3,13 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Persistance.Configurations
 {
-    public class DeathRecordConfiguration : EntityTypeConfiguration<DeathRecord>
+    public class UrnConfiguration : EntityTypeConfiguration<Urn>
     {
-        public DeathRecordConfiguration()
+        public UrnConfiguration()
         {
-            HasKey(dr => dr.PersonId);
+            HasKey(u => u.GraveSiteId);
 
-            HasRequired(dr => dr.Person)
+            HasRequired(u => u.GraveSite)
                 .WithOptional()
                 .WillCascadeOnDelete();
         }

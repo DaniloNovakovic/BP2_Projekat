@@ -2,6 +2,7 @@
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Persistance.Repositories;
+using System;
 
 namespace Persistance
 {
@@ -27,20 +28,26 @@ namespace Persistance
             Urns = new Repository<Urn>(context);
         }
 
-        public IRepository<FamilyMember> FamilyMembers { get; set; }
-        public IRepository<Person> Persons { get; set; }
-        public IRepository<GraveSite> GraveSites { get; set; }
-        public IRepository<DeathRecord> DeathRecords { get; set; }
         public IRepository<Chapel> Chapels { get; set; }
         public IRepository<Coffin> Coffins { get; set; }
-        public IRepository<Location> Locations { get; set; }
-        public IRepository<Worker> Workers { get; set; }
-        public IRepository<Manager> Managers { get; set; }
-        public IRepository<TechnicalStaff> TechnicalStaff { get; set; }
         public IRepository<Contract> Contracts { get; set; }
+        public IRepository<DeathRecord> DeathRecords { get; set; }
+        public IRepository<FamilyMember> FamilyMembers { get; set; }
+        public IRepository<GraveSite> GraveSites { get; set; }
+        public IRepository<Location> Locations { get; set; }
+        public IRepository<Manager> Managers { get; set; }
+        public IRepository<Person> Persons { get; set; }
+        public IRepository<TechnicalStaff> TechnicalStaff { get; set; }
         public IRepository<Urn> Urns { get; set; }
+        public IRepository<Worker> Workers { get; set; }
 
         public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
         {
             _context.Dispose();
         }

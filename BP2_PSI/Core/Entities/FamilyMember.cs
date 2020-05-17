@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Entities
+﻿namespace Core.Entities
 {
     public class FamilyMember
     {
+        public long RelatedToId { get; set; }
         public DeathRecord RelatedTo { get; set; }
 
+        public long MemberId { get; set; }
         public Person Member { get; set; }
 
         /// <summary>
