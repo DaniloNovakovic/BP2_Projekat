@@ -7,6 +7,15 @@ namespace Persistance.Configurations
     {
         public FamilyMemberConfiguration()
         {
+            HasRequired(fm => fm.Member)
+                .WithMany()
+                .HasForeignKey(fm => fm.MemberId)
+                .WillCascadeOnDelete(false);
+
+            HasRequired(fm => fm.RelatedTo)
+                .WithMany()
+                .HasForeignKey(fm => fm.RelatedToId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

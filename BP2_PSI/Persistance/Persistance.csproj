@@ -68,6 +68,10 @@
     <Compile Include="Migrations\202005171949335_InitMigration.designer.cs">
       <DependentUpon>202005171949335_InitMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005172011474_AddRequiredConstraintsToFamilyMember.cs" />
+    <Compile Include="Migrations\202005172011474_AddRequiredConstraintsToFamilyMember.designer.cs">
+      <DependentUpon>202005172011474_AddRequiredConstraintsToFamilyMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -86,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005171949335_InitMigration.resx">
       <DependentUpon>202005171949335_InitMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005172011474_AddRequiredConstraintsToFamilyMember.resx">
+      <DependentUpon>202005172011474_AddRequiredConstraintsToFamilyMember.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
