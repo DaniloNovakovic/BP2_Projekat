@@ -16,6 +16,6 @@ namespace Core.Entities
         public string Type { get; set; }
 
         public Location Location { get; set; }
-        public IMKU IMKU { get; set; }
+        public DeathRecord DeathRecord { get; set; }
     }
 }

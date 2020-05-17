@@ -8,7 +8,7 @@ namespace Core.Entities
 {
     public class FamilyMember
     {
-        public IMKU RelatedTo { get; set; }
+        public DeathRecord RelatedTo { get; set; }
 
         public Person Member { get; set; }
 

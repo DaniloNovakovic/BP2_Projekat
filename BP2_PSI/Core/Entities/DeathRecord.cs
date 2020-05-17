@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class IMKU
+    public class DeathRecord
     {
         public long PersonId { get; set; }
         public Person Person { get; set; }
