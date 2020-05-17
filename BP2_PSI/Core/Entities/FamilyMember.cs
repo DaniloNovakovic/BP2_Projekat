@@ -2,10 +2,9 @@
 {
     public class FamilyMember
     {
-        public long RelatedToId { get; set; }
+        public long Id { get; set; }
         public DeathRecord RelatedTo { get; set; }
 
-        public long MemberId { get; set; }
         public Person Member { get; set; }
 
         /// <summary>

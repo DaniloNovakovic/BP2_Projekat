@@ -81,31 +81,31 @@
                         FuneralType = c.Int(nullable: false),
                         FuneralStartTime = c.DateTime(),
                         Chapel_Id = c.Long(nullable: false),
-                        FamilyMember_MemberId = c.Long(nullable: false),
-                        FamilyMember_RelatedToId = c.Long(nullable: false),
+                        FamilyMember_Id = c.Long(nullable: false),
                         Manager_WorkerId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Chapels", t => t.Chapel_Id, cascadeDelete: true)
-                .ForeignKey("dbo.FamilyMembers", t => new { t.FamilyMember_MemberId, t.FamilyMember_RelatedToId }, cascadeDelete: true)
+                .ForeignKey("dbo.FamilyMembers", t => t.FamilyMember_Id, cascadeDelete: true)
                 .ForeignKey("dbo.Managers", t => t.Manager_WorkerId, cascadeDelete: true)
                 .Index(t => t.Chapel_Id)
-                .Index(t => new { t.FamilyMember_MemberId, t.FamilyMember_RelatedToId })
+                .Index(t => t.FamilyMember_Id)
                 .Index(t => t.Manager_WorkerId);
             
             CreateTable(
                 "dbo.FamilyMembers",
                 c => new
                     {
-                        MemberId = c.Long(nullable: false),
-                        RelatedToId = c.Long(nullable: false),
+                        Id = c.Long(nullable: false, identity: true),
                         RelationType = c.String(),
+                        Member_Id = c.Long(),
+                        RelatedTo_PersonId = c.Long(),
                     })
-                .PrimaryKey(t => new { t.MemberId, t.RelatedToId })
-                .ForeignKey("dbo.People", t => t.MemberId, cascadeDelete: true)
-                .ForeignKey("dbo.DeathRecords", t => t.RelatedToId, cascadeDelete: true)
-                .Index(t => t.MemberId)
-                .Index(t => t.RelatedToId);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.People", t => t.Member_Id)
+                .ForeignKey("dbo.DeathRecords", t => t.RelatedTo_PersonId)
+                .Index(t => t.Member_Id)
+                .Index(t => t.RelatedTo_PersonId);
             
             CreateTable(
                 "dbo.Managers",
@@ -163,9 +163,9 @@
             DropForeignKey("dbo.TechnicalStaffs", "ManagerId", "dbo.Managers");
             DropForeignKey("dbo.TechnicalStaffs", "WorkerId", "dbo.Workers");
             DropForeignKey("dbo.Workers", "PersonId", "dbo.People");
-            DropForeignKey("dbo.Contracts", new[] { "FamilyMember_MemberId", "FamilyMember_RelatedToId" }, "dbo.FamilyMembers");
-            DropForeignKey("dbo.FamilyMembers", "RelatedToId", "dbo.DeathRecords");
-            DropForeignKey("dbo.FamilyMembers", "MemberId", "dbo.People");
+            DropForeignKey("dbo.Contracts", "FamilyMember_Id", "dbo.FamilyMembers");
+            DropForeignKey("dbo.FamilyMembers", "RelatedTo_PersonId", "dbo.DeathRecords");
+            DropForeignKey("dbo.FamilyMembers", "Member_Id", "dbo.People");
             DropForeignKey("dbo.Contracts", "Chapel_Id", "dbo.Chapels");
             DropForeignKey("dbo.Coffins", "GraveSiteId", "dbo.GraveSites");
             DropForeignKey("dbo.GraveSites", "Id", "dbo.Locations");
@@ -177,10 +177,10 @@
             DropIndex("dbo.TechnicalStaffs", new[] { "ManagerId" });
             DropIndex("dbo.TechnicalStaffs", new[] { "WorkerId" });
             DropIndex("dbo.Managers", new[] { "WorkerId" });
-            DropIndex("dbo.FamilyMembers", new[] { "RelatedToId" });
-            DropIndex("dbo.FamilyMembers", new[] { "MemberId" });
+            DropIndex("dbo.FamilyMembers", new[] { "RelatedTo_PersonId" });
+            DropIndex("dbo.FamilyMembers", new[] { "Member_Id" });
             DropIndex("dbo.Contracts", new[] { "Manager_WorkerId" });
-            DropIndex("dbo.Contracts", new[] { "FamilyMember_MemberId", "FamilyMember_RelatedToId" });
+            DropIndex("dbo.Contracts", new[] { "FamilyMember_Id" });
             DropIndex("dbo.Contracts", new[] { "Chapel_Id" });
             DropIndex("dbo.DeathRecords", new[] { "PersonId" });
             DropIndex("dbo.GraveSites", new[] { "Id" });

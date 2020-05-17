@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Persistance.Configurations
 {
-    public class FamilyMemberConfiguration : EntityTypeConfiguration<FamilyMember>
+    public class PersonConfiguration : EntityTypeConfiguration<Person>
     {
-        public FamilyMemberConfiguration()
+        public PersonConfiguration()
         {
         }
     }

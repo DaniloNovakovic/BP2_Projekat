@@ -60,12 +60,13 @@
     <Compile Include="Configurations\FamilyMemberConfiguration.cs" />
     <Compile Include="Configurations\GraveSiteConfiguration.cs" />
     <Compile Include="Configurations\ManagerConfiguration.cs" />
+    <Compile Include="Configurations\PersonConfiguration.cs" />
     <Compile Include="Configurations\TechnicalStaffConfiguration.cs" />
     <Compile Include="Configurations\UrnConfiguration.cs" />
     <Compile Include="Configurations\WorkersConfiguration.cs" />
-    <Compile Include="Migrations\202005171742120_InitMigration.cs" />
-    <Compile Include="Migrations\202005171742120_InitMigration.designer.cs">
-      <DependentUpon>202005171742120_InitMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202005171949335_InitMigration.cs" />
+    <Compile Include="Migrations\202005171949335_InitMigration.designer.cs">
+      <DependentUpon>202005171949335_InitMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,8 +84,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005171742120_InitMigration.resx">
-      <DependentUpon>202005171742120_InitMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005171949335_InitMigration.resx">
+      <DependentUpon>202005171949335_InitMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
