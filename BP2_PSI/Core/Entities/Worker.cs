@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Radnik
+    public class Worker
     {
-        public long CovekId { get; set; }
-        public Covek Covek { get; set; }
+        public long PersonId { get; set; }
+        public Person Person { get; set; }
 
-        public string RadnoVreme { get; set; }
+        public string WorkTime { get; set; }
 
         /// <summary>
         /// Tehnicko Osoblje ili Sef
         /// </summary>
-        public string TipRadnika { get; set; }
+        public string Role { get; set; }
     }
 }

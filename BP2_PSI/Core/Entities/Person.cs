@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Kapela
+    public class Person
     {
         public long Id { get; set; }
-        public string Naziv { get; set; }
-        public Lokacija Lokacija { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime? BirthDate { get; set; }
     }
 }

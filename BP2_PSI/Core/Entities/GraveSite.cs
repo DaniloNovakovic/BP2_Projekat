@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class GrobnoMesto
+    public class GraveSite
     {
         public long Id { get; set; }
 
         /// <summary>
-        /// Urna ili Kovceg
+        /// Urn or Coffin
         /// </summary>
-        public string Tip { get; set; }
+        public string Type { get; set; }
 
-        public Lokacija Lokacija { get; set; }
+        public Location Location { get; set; }
         public IMKU IMKU { get; set; }
     }
 }

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class TehnickoOsoblje
+    public class Chapel
     {
-        public long RadnikId { get; set; }
-        public Radnik Radnik { get; set; }
-
-        public Sef Sef { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public Location Location { get; set; }
     }
 }

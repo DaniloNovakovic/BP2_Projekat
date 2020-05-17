@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Covek
+    public class Location
     {
         public long Id { get; set; }
-        public string Ime { get; set; }
-        public string Prezime { get; set; }
-        public DateTime? DatumRodjenja { get; set; }
+
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
     }
 }
