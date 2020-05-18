@@ -4,9 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BP2_PSI"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="BP2 PSI PR136/2016 - Groblje" Height="450" Width="800">
+
+    <Window.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">
+            <Setter Property="Margin" Value="10" />
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button Content="Family Members" Grid.Row="0" Grid.Column="0" />
+        <Button Content="Persons" Grid.Row="0" Grid.Column="1" />
+        <Button Content="Death Records" Grid.Row="0" Grid.Column="2" />
+        <Button Content="Contracts" Grid.Row="1" Grid.Column="0" />
+        <Button Content="Grave Sites" Grid.Row="1" Grid.Column="2" />
+        <Button Content="Workers" Grid.Row="2" Grid.Column="0" />
+        <Button Content="Chapels" Grid.Row="2" Grid.Column="2" />
     </Grid>
 </Window>
