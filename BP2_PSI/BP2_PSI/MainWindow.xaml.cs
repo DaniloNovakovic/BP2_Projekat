@@ -11,22 +11,17 @@ namespace BP2_PSI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IUnitOfWork _uow;
+        private UoWFactory _uowFactory;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            var nameOrConnectionString = ConfigurationManager.AppSettings.Get("SelectedConnectionStringName");
-            var factory = new UoWFactory(nameOrConnectionString);
-            _uow = factory.CreateNew();
         }
 
-        protected override void OnClosed(EventArgs e)
+        private void OnWindowLoaded(object sender, RoutedEventArgs e)
         {
-            _uow.Dispose();
-
-            base.OnClosed(e);
+            string nameOrConnectionString = ConfigurationManager.AppSettings.Get("SelectedConnectionStringName");
+            _uowFactory = new UoWFactory(nameOrConnectionString);
         }
     }
 }
