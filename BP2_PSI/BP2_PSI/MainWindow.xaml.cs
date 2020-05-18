@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.Interfaces;
+using Persistance;
+using System;
+using System.Configuration;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BP2_PSI
 {
@@ -20,9 +11,22 @@ namespace BP2_PSI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly IUnitOfWork _uow;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            var nameOrConnectionString = ConfigurationManager.AppSettings.Get("SelectedConnectionStringName");
+            var factory = new UoWFactory(nameOrConnectionString);
+            _uow = factory.CreateNew();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            _uow.Dispose();
+
+            base.OnClosed(e);
         }
     }
 }
