@@ -13,8 +13,8 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="BP2 PSI PR136/2016 - Groblje" Height="200" Width="600"  MinHeight="200" MinWidth="500"
-        Loaded="OnWindowLoaded">
+        Title="BP2 PSI PR136/2016 - Groblje" Height="250" Width="600"  MinHeight="200" MinWidth="500"
+        Loaded="Window_Loaded">
 
     <Window.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">
@@ -22,23 +22,31 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
-        <Button Content="Family Members" Grid.Row="0" Grid.Column="0" />
-        <Button Content="Persons" Grid.Row="0" Grid.Column="1" />
-        <Button Content="Death Records" Grid.Row="0" Grid.Column="2" />
-        <Button Content="Contracts" Grid.Row="1" Grid.Column="0" />
-        <Button Content="Grave Sites" Grid.Row="1" Grid.Column="2" />
-        <Button Content="Workers" Grid.Row="2" Grid.Column="0" />
-        <Button Content="Chapels" Grid.Row="2" Grid.Column="2" />
-    </Grid>
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Name="statusBar" Text="Loading..." />
+            </StatusBarItem>
+        </StatusBar>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnFamilyMembers" Content="Family Members" Grid.Row="0" Grid.Column="0" />
+            <Button x:Name="btnPersons" Content="Persons" Grid.Row="0" Grid.Column="1" Click="OpenPersonsWindow" />
+            <Button x:Name="btnDeathRecords" Content="Death Records" Grid.Row="0" Grid.Column="2" />
+            <Button x:Name="btnContracts" Content="Contracts" Grid.Row="1" Grid.Column="0" />
+            <Button x:Name="btnGraveSites" Content="Grave Sites" Grid.Row="1" Grid.Column="2" />
+            <Button x:Name="btnContent" Content="Workers" Grid.Row="2" Grid.Column="0" />
+            <Button x:Name="btnChapels" Content="Chapels" Grid.Row="2" Grid.Column="2" />
+        </Grid>
+    </DockPanel>
 </Window>

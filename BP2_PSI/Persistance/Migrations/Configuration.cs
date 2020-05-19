@@ -14,9 +14,6 @@
 
         protected override void Seed(Persistance.ApplicationDbContext context)
         {
-            // This method will be called after migrating to the latest version.
-
-            new ApplicationDbBootstrapper(context).Seed();
         }
     }
 }

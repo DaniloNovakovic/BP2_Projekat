@@ -43,6 +43,8 @@ namespace Persistance
         public DbSet<Coffin> Coffins { get; set; }
         public DbSet<Urn> Urns { get; set; }
 
+        public DbSet<FamilyMember> FamilyMembers { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.AddFromAssembly(typeof(DeathRecordConfiguration).Assembly);
