@@ -149,7 +149,7 @@ namespace Persistance
 
             var graveSite = new GraveSite
             {
-                Id = 0,
+                DeathRecordId = 0,
                 DeathRecord = deathRecord,
                 Location = graveSiteLocation,
                 Type = GraveSiteType.Coffin
@@ -157,7 +157,7 @@ namespace Persistance
 
             var coffin = new Coffin
             {
-                GraveSiteId = graveSite.Id,
+                GraveSiteId = graveSite.DeathRecordId,
                 GraveSite = graveSite,
                 Mark = "Black Coffin v1.0 - Smooth Edition"
             };

@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitMigration : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
@@ -11,12 +11,13 @@
                 "dbo.Chapels",
                 c => new
                     {
-                        Id = c.Long(nullable: false),
+                        Id = c.Long(nullable: false, identity: true),
                         Name = c.String(),
+                        LocationId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Locations", t => t.Id, cascadeDelete: true)
-                .Index(t => t.Id);
+                .ForeignKey("dbo.Locations", t => t.LocationId, cascadeDelete: true)
+                .Index(t => t.LocationId);
             
             CreateTable(
                 "dbo.Locations",
@@ -43,13 +44,15 @@
                 "dbo.GraveSites",
                 c => new
                     {
-                        Id = c.Long(nullable: false),
+                        DeathRecordId = c.Long(nullable: false),
                         Type = c.String(nullable: false),
+                        LocationId = c.Long(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.DeathRecords", t => t.Id, cascadeDelete: true)
-                .ForeignKey("dbo.Locations", t => t.Id, cascadeDelete: true)
-                .Index(t => t.Id);
+                .PrimaryKey(t => t.DeathRecordId)
+                .ForeignKey("dbo.DeathRecords", t => t.DeathRecordId, cascadeDelete: true)
+                .ForeignKey("dbo.Locations", t => t.LocationId, cascadeDelete: true)
+                .Index(t => t.DeathRecordId)
+                .Index(t => t.LocationId);
             
             CreateTable(
                 "dbo.DeathRecords",
@@ -57,6 +60,7 @@
                     {
                         PersonId = c.Long(nullable: false),
                         DeathDate = c.DateTime(),
+                        GraveSiteId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.PersonId)
                 .ForeignKey("dbo.People", t => t.PersonId, cascadeDelete: true)
@@ -78,34 +82,34 @@
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
+                        FamilyMemberId = c.Long(nullable: false),
+                        ManagerId = c.Long(nullable: false),
+                        ChapelId = c.Long(nullable: false),
                         FuneralType = c.Int(nullable: false),
                         FuneralStartTime = c.DateTime(),
-                        Chapel_Id = c.Long(nullable: false),
-                        FamilyMember_Id = c.Long(nullable: false),
-                        Manager_WorkerId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Chapels", t => t.Chapel_Id, cascadeDelete: true)
-                .ForeignKey("dbo.FamilyMembers", t => t.FamilyMember_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Managers", t => t.Manager_WorkerId, cascadeDelete: true)
-                .Index(t => t.Chapel_Id)
-                .Index(t => t.FamilyMember_Id)
-                .Index(t => t.Manager_WorkerId);
+                .ForeignKey("dbo.Chapels", t => t.ChapelId, cascadeDelete: true)
+                .ForeignKey("dbo.FamilyMembers", t => t.FamilyMemberId, cascadeDelete: true)
+                .ForeignKey("dbo.Managers", t => t.ManagerId, cascadeDelete: true)
+                .Index(t => t.FamilyMemberId)
+                .Index(t => t.ManagerId)
+                .Index(t => t.ChapelId);
             
             CreateTable(
                 "dbo.FamilyMembers",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
+                        RelatedToId = c.Long(nullable: false),
+                        MemberId = c.Long(nullable: false),
                         RelationType = c.String(),
-                        Member_Id = c.Long(),
-                        RelatedTo_PersonId = c.Long(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.People", t => t.Member_Id)
-                .ForeignKey("dbo.DeathRecords", t => t.RelatedTo_PersonId)
-                .Index(t => t.Member_Id)
-                .Index(t => t.RelatedTo_PersonId);
+                .ForeignKey("dbo.People", t => t.MemberId)
+                .ForeignKey("dbo.DeathRecords", t => t.RelatedToId)
+                .Index(t => t.RelatedToId)
+                .Index(t => t.MemberId);
             
             CreateTable(
                 "dbo.Managers",
@@ -158,34 +162,35 @@
         public override void Down()
         {
             DropForeignKey("dbo.Urns", "GraveSiteId", "dbo.GraveSites");
-            DropForeignKey("dbo.Contracts", "Manager_WorkerId", "dbo.Managers");
+            DropForeignKey("dbo.Contracts", "ManagerId", "dbo.Managers");
             DropForeignKey("dbo.Managers", "WorkerId", "dbo.Workers");
             DropForeignKey("dbo.TechnicalStaffs", "ManagerId", "dbo.Managers");
             DropForeignKey("dbo.TechnicalStaffs", "WorkerId", "dbo.Workers");
             DropForeignKey("dbo.Workers", "PersonId", "dbo.People");
-            DropForeignKey("dbo.Contracts", "FamilyMember_Id", "dbo.FamilyMembers");
-            DropForeignKey("dbo.FamilyMembers", "RelatedTo_PersonId", "dbo.DeathRecords");
-            DropForeignKey("dbo.FamilyMembers", "Member_Id", "dbo.People");
-            DropForeignKey("dbo.Contracts", "Chapel_Id", "dbo.Chapels");
+            DropForeignKey("dbo.Contracts", "FamilyMemberId", "dbo.FamilyMembers");
+            DropForeignKey("dbo.FamilyMembers", "RelatedToId", "dbo.DeathRecords");
+            DropForeignKey("dbo.FamilyMembers", "MemberId", "dbo.People");
+            DropForeignKey("dbo.Contracts", "ChapelId", "dbo.Chapels");
             DropForeignKey("dbo.Coffins", "GraveSiteId", "dbo.GraveSites");
-            DropForeignKey("dbo.GraveSites", "Id", "dbo.Locations");
-            DropForeignKey("dbo.GraveSites", "Id", "dbo.DeathRecords");
+            DropForeignKey("dbo.GraveSites", "LocationId", "dbo.Locations");
+            DropForeignKey("dbo.GraveSites", "DeathRecordId", "dbo.DeathRecords");
             DropForeignKey("dbo.DeathRecords", "PersonId", "dbo.People");
-            DropForeignKey("dbo.Chapels", "Id", "dbo.Locations");
+            DropForeignKey("dbo.Chapels", "LocationId", "dbo.Locations");
             DropIndex("dbo.Urns", new[] { "GraveSiteId" });
             DropIndex("dbo.Workers", new[] { "PersonId" });
             DropIndex("dbo.TechnicalStaffs", new[] { "ManagerId" });
             DropIndex("dbo.TechnicalStaffs", new[] { "WorkerId" });
             DropIndex("dbo.Managers", new[] { "WorkerId" });
-            DropIndex("dbo.FamilyMembers", new[] { "RelatedTo_PersonId" });
-            DropIndex("dbo.FamilyMembers", new[] { "Member_Id" });
-            DropIndex("dbo.Contracts", new[] { "Manager_WorkerId" });
-            DropIndex("dbo.Contracts", new[] { "FamilyMember_Id" });
-            DropIndex("dbo.Contracts", new[] { "Chapel_Id" });
+            DropIndex("dbo.FamilyMembers", new[] { "MemberId" });
+            DropIndex("dbo.FamilyMembers", new[] { "RelatedToId" });
+            DropIndex("dbo.Contracts", new[] { "ChapelId" });
+            DropIndex("dbo.Contracts", new[] { "ManagerId" });
+            DropIndex("dbo.Contracts", new[] { "FamilyMemberId" });
             DropIndex("dbo.DeathRecords", new[] { "PersonId" });
-            DropIndex("dbo.GraveSites", new[] { "Id" });
+            DropIndex("dbo.GraveSites", new[] { "LocationId" });
+            DropIndex("dbo.GraveSites", new[] { "DeathRecordId" });
             DropIndex("dbo.Coffins", new[] { "GraveSiteId" });
-            DropIndex("dbo.Chapels", new[] { "Id" });
+            DropIndex("dbo.Chapels", new[] { "LocationId" });
             DropTable("dbo.Urns");
             DropTable("dbo.Workers");
             DropTable("dbo.TechnicalStaffs");

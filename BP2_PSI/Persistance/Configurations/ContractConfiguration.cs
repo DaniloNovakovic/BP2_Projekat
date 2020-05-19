@@ -9,14 +9,17 @@ namespace Persistance.Configurations
         {
             HasRequired(c => c.FamilyMember)
                 .WithMany()
+                .HasForeignKey(c => c.FamilyMemberId)
                 .WillCascadeOnDelete();
 
             HasRequired(c => c.Manager)
                 .WithMany()
+                .HasForeignKey(c => c.ManagerId)
                 .WillCascadeOnDelete();
 
             HasRequired(c => c.Chapel)
                 .WithMany()
+                .HasForeignKey(c => c.ChapelId)
                 .WillCascadeOnDelete();
         }
     }

@@ -7,9 +7,7 @@ namespace Persistance.Configurations
     {
         public ChapelConfiguration()
         {
-            HasRequired(c => c.Location)
-                .WithOptional()
-                .WillCascadeOnDelete();
+            HasKey(c => c.Id);
         }
     }
 }

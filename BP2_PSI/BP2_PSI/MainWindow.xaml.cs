@@ -34,12 +34,6 @@ namespace BP2_PSI
             statusBar.Text = text;
         }
 
-        private void OpenPersonsWindow(object sender, RoutedEventArgs e)
-        {
-            var persons = new PersonsView(_uow);
-            persons.ShowDialog();
-        }
-
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             string nameOrConnectionString = ConfigurationManager.AppSettings.Get("SelectedConnectionStringName");
@@ -60,6 +54,18 @@ namespace BP2_PSI
         {
             btnChapels.IsEnabled = btnContent.IsEnabled = btnContracts.IsEnabled = btnDeathRecords.IsEnabled
                 = btnFamilyMembers.IsEnabled = btnGraveSites.IsEnabled = btnPersons.IsEnabled = isEnabled;
+        }
+
+        private void OpenPersonsWindow(object sender, RoutedEventArgs e)
+        {
+            var view = new PersonsView(_uow);
+            view.ShowDialog();
+        }
+
+        private void OpenChapelsWindow(object sender, RoutedEventArgs e)
+        {
+            var view = new ChapelsView(_uow);
+            view.ShowDialog();
         }
     }
 }

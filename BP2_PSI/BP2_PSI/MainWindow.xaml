@@ -46,7 +46,7 @@
             <Button x:Name="btnContracts" Content="Contracts" Grid.Row="1" Grid.Column="0" />
             <Button x:Name="btnGraveSites" Content="Grave Sites" Grid.Row="1" Grid.Column="2" />
             <Button x:Name="btnContent" Content="Workers" Grid.Row="2" Grid.Column="0" />
-            <Button x:Name="btnChapels" Content="Chapels" Grid.Row="2" Grid.Column="2" />
+            <Button x:Name="btnChapels" Content="Chapels" Grid.Row="2" Grid.Column="2" Click="OpenChapelsWindow" />
         </Grid>
     </DockPanel>
 </Window>

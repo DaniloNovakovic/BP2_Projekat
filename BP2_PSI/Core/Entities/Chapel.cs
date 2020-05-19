@@ -10,6 +10,8 @@ namespace Core.Entities
     {
         public long Id { get; set; }
         public string Name { get; set; }
+
+        public long LocationId { get; set; }
         public Location Location { get; set; }
     }
 }
