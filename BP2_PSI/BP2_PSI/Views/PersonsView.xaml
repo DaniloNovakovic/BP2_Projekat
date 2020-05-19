@@ -25,7 +25,7 @@
                 <Button x:Name="deleteBtn" Content="Delete" IsEnabled="False" Margin="10" Width="100" Click="deleteBtn_Click" />
             </StackPanel>
 
-            <DataGrid Grid.Row="1" Margin="10" ItemsSource="{Binding Persons}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}"
+            <DataGrid Grid.Row="1" Margin="10" ItemsSource="{Binding DataItemList}" SelectedItem="{Binding SelectedDataItem, Mode=TwoWay}"
                       AutoGenerateColumns="False" IsReadOnly="True" BorderThickness="2" BorderBrush="LightGray"
                       SelectionChanged="DataGrid_SelectionChanged">
                 <DataGrid.Columns>

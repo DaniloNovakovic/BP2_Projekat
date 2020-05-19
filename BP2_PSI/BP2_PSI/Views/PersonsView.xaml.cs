@@ -24,9 +24,9 @@ namespace BP2_PSI.Views
             _uow = uow;
         }
 
-        public ObservableCollection<Person> Persons { get; set; } = new ObservableCollection<Person>();
+        public ObservableCollection<Person> DataItemList { get; set; } = new ObservableCollection<Person>();
 
-        public Person SelectedPerson { get; set; }
+        public Person SelectedDataItem { get; set; }
 
         private async void addBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@ namespace BP2_PSI.Views
 
         private void DataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            deleteBtn.IsEnabled = editBtn.IsEnabled = SelectedPerson != null;
+            deleteBtn.IsEnabled = editBtn.IsEnabled = SelectedDataItem != null;
         }
 
         private async void deleteBtn_Click(object sender, RoutedEventArgs e)
@@ -53,7 +53,7 @@ namespace BP2_PSI.Views
 
             await Task.Run(() =>
             {
-                var entity = _uow.Persons.Get(SelectedPerson.Id);
+                var entity = _uow.Persons.Get(SelectedDataItem.Id);
                 _uow.Persons.Remove(entity);
                 _uow.SaveChanges();
             });
@@ -65,7 +65,7 @@ namespace BP2_PSI.Views
 
         private async void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            var view = new AddOrUpdatePersonView(SelectedPerson, onSubmit: person =>
+            var view = new AddOrUpdatePersonView(SelectedDataItem, onSubmit: person =>
             {
                 Log("Updating item...");
 
@@ -93,10 +93,10 @@ namespace BP2_PSI.Views
             Log("Refreshing data...");
 
             var dbPersons = await Task.Run(() => _uow.Persons.GetAll());
-            Persons.Clear();
-            foreach (var person in dbPersons)
+            DataItemList.Clear();
+            foreach (var item in dbPersons)
             {
-                Persons.Add(person);
+                DataItemList.Add(item);
             }
 
             Log("Loaded");
