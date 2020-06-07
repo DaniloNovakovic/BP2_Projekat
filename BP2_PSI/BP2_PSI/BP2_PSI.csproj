@@ -96,8 +96,23 @@
     <Compile Include="Views\ChapelsView.xaml.cs">
       <DependentUpon>ChapelsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ContractsView.xaml.cs">
+      <DependentUpon>ContractsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeathRecordsView.xaml.cs">
+      <DependentUpon>DeathRecordsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FamilyMembersView.xaml.cs">
+      <DependentUpon>FamilyMembersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraveSitesView.xaml.cs">
+      <DependentUpon>GraveSitesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PersonsView.xaml.cs">
       <DependentUpon>PersonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkersView.xaml.cs">
+      <DependentUpon>WorkersView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -123,7 +138,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ContractsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeathRecordsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FamilyMembersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GraveSitesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PersonsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorkersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
