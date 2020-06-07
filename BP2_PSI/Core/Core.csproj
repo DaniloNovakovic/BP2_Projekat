@@ -58,6 +58,7 @@
     <Compile Include="Enumerations\GraveSiteType.cs" />
     <Compile Include="Enumerations\WorkerRoles.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\Repositories\IPersonRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

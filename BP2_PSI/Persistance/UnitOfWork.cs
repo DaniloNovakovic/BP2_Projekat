@@ -15,7 +15,7 @@ namespace Persistance
             _context = context;
 
             FamilyMembers = new Repository<FamilyMember>(context);
-            Persons = new Repository<Person>(context);
+            Persons = new PersonRepository(context);
             GraveSites = new Repository<GraveSite>(context);
             DeathRecords = new Repository<DeathRecord>(context);
             Chapels = new ChapelRepository(context);
@@ -36,7 +36,7 @@ namespace Persistance
         public IRepository<GraveSite> GraveSites { get; set; }
         public IRepository<Location> Locations { get; set; }
         public IRepository<Manager> Managers { get; set; }
-        public IRepository<Person> Persons { get; set; }
+        public IPersonRepository Persons { get; set; }
         public IRepository<TechnicalStaff> TechnicalStaff { get; set; }
         public IRepository<Urn> Urns { get; set; }
         public IRepository<Worker> Workers { get; set; }

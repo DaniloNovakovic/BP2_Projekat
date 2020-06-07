@@ -7,7 +7,7 @@ namespace Core.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IRepository<FamilyMember> FamilyMembers { get; set; }
-        IRepository<Person> Persons { get; set; }
+        IPersonRepository Persons { get; set; }
         IRepository<GraveSite> GraveSites { get; set; }
         IRepository<DeathRecord> DeathRecords { get; set; }
         IRepository<Chapel> Chapels { get; set; }
