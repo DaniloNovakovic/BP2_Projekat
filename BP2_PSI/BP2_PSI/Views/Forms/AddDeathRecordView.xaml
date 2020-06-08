@@ -1,4 +1,4 @@
-﻿<Window x:Class="BP2_PSI.Views.UpdateDeathRecordView"
+﻿<Window x:Class="BP2_PSI.Views.Forms.AddDeathRecordView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:BP2_PSI.Views"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="AddOrUpdateDeathRecord" Height="200" Width="400">
+        Title="AddDeathRecordView" Height="350" Width="400">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
@@ -20,6 +21,12 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Death Date" Margin="5" VerticalAlignment="Center" />
         <xctk:DateTimePicker x:Name="DeathDateInput" Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" />
 
-        <Button Grid.Row="1"  Grid.Column="1" Content="Submit" Width="100" Click="OnSubmit" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Select person to kill" Margin="5" VerticalAlignment="Center" />
+        <ComboBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="5"
+                  ItemsSource="{Binding Persons}"
+                  SelectedIndex="0"
+                  SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" />
+
+        <Button Grid.Row="4"  Grid.Column="3" Content="Submit" Width="100" Click="OnSubmit" />
     </Grid>
 </Window>

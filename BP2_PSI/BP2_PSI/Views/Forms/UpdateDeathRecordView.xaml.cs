@@ -1,24 +1,16 @@
 ﻿using Core.Entities;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
 using System.Windows;
-using System.Windows.Documents;
 
-namespace BP2_PSI.Views
+namespace BP2_PSI.Views.Forms
 {
     /// <summary>
-    /// Interaction logic for AddDeathRecordView.xaml
+    /// Interaction logic for UpdateDeathRecordView.xaml
     /// </summary>
-    public partial class AddDeathRecordView : Window
+    public partial class UpdateDeathRecordView : Window
     {
         private DeathRecord _data = new DeathRecord();
         private readonly Action<DeathRecord> _onSubmit;
-        public Person SelectedPerson { get; set; }
-        public ObservableCollection<Person> Persons { get; set; }
 
         public DeathRecord DeathRecord
         {
@@ -29,19 +21,16 @@ namespace BP2_PSI.Views
             }
         }
 
-        public AddDeathRecordView(IEnumerable<Person> persons, Action<DeathRecord> onSubmit = null)
+        public UpdateDeathRecordView(DeathRecord deathRecordToEdit, Action<DeathRecord> onSubmit = null)
         {
-            DataContext = this;
-            Persons = new ObservableCollection<Person>(persons);
-
             InitializeComponent();
 
+            DeathRecord = deathRecordToEdit;
             _onSubmit = onSubmit;
         }
 
         private void OnSubmit(object sender, RoutedEventArgs e)
         {
-            DeathRecord.PersonId = SelectedPerson.Id;
             DeathRecord.DeathDate = DateTime.Parse(DeathDateInput.Text);
 
             _onSubmit?.Invoke(DeathRecord);

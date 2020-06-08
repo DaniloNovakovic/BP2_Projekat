@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BP2_PSI.Views
+namespace BP2_PSI.Views.Forms
 {
     /// <summary>
     /// Interaction logic for AddOrUpdateChapelView.xaml

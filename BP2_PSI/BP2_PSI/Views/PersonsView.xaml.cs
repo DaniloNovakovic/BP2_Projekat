@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using BP2_PSI.Views.Forms;
+using Core.Entities;
 using Core.Interfaces;
 using System;
 using System.Collections.ObjectModel;
@@ -104,7 +105,9 @@ namespace BP2_PSI.Views
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            addBtn.IsEnabled = false;
             await RefreshAsync();
+            addBtn.IsEnabled = true;
         }
     }
 }

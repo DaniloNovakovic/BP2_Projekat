@@ -87,16 +87,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\AddDeathRecordView.xaml.cs">
+    <Compile Include="Views\Forms\AddDeathRecordView.xaml.cs">
       <DependentUpon>AddDeathRecordView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddOrUpdateChapelView.xaml.cs">
+    <Compile Include="Views\Forms\AddOrUpdateChapelView.xaml.cs">
       <DependentUpon>AddOrUpdateChapelView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UpdateDeathRecordView.xaml.cs">
+    <Compile Include="Views\Forms\UpdateDeathRecordView.xaml.cs">
       <DependentUpon>UpdateDeathRecordView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddOrUpdatePersonView.xaml.cs">
+    <Compile Include="Views\Forms\AddOrUpdatePersonView.xaml.cs">
       <DependentUpon>AddOrUpdatePersonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ChapelsView.xaml.cs">
@@ -132,19 +132,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\AddDeathRecordView.xaml">
+    <Page Include="Views\Forms\AddDeathRecordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddOrUpdateChapelView.xaml">
+    <Page Include="Views\Forms\AddOrUpdateChapelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UpdateDeathRecordView.xaml">
+    <Page Include="Views\Forms\UpdateDeathRecordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddOrUpdatePersonView.xaml">
+    <Page Include="Views\Forms\AddOrUpdatePersonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
