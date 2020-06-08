@@ -10,5 +10,14 @@ namespace Core.Entities
 
         public long? GraveSiteId { get; set; }
         public GraveSite GraveSite { get; set; }
+
+        public override string ToString()
+        {
+            if (Person != null)
+            {
+                return Person.ToString();
+            }
+            return $"Id:{PersonId}, Death:{DeathDate}";
+        }
     }
 }

@@ -90,6 +90,9 @@
     <Compile Include="Views\Forms\AddDeathRecordView.xaml.cs">
       <DependentUpon>AddDeathRecordView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\AddFamilyMemberView.xaml.cs">
+      <DependentUpon>AddFamilyMemberView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\AddOrUpdateChapelView.xaml.cs">
       <DependentUpon>AddOrUpdateChapelView.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,9 @@
     </Compile>
     <Compile Include="Views\FamilyMembersView.xaml.cs">
       <DependentUpon>FamilyMembersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\UpdateFamilyMemberView.xaml.cs">
+      <DependentUpon>UpdateFamilyMemberView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GraveSitesView.xaml.cs">
       <DependentUpon>GraveSitesView.xaml</DependentUpon>
@@ -133,6 +139,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Forms\AddDeathRecordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\AddFamilyMemberView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FamilyMembersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\UpdateFamilyMemberView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

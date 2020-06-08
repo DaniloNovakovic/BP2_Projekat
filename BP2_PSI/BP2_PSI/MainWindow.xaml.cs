@@ -78,7 +78,7 @@ namespace BP2_PSI
 
         private void OpenFamilyMembersWindow(object sender, RoutedEventArgs e)
         {
-            var view = new FamilyMembersView(_uow);
+            var view = new FamilyMembersView(_uowFactory);
             view.ShowDialog();
         }
 

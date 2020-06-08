@@ -17,7 +17,7 @@ namespace Persistance
             FamilyMembers = new Repository<FamilyMember>(context);
             Persons = new PersonRepository(context);
             GraveSites = new Repository<GraveSite>(context);
-            DeathRecords = new Repository<DeathRecord>(context);
+            DeathRecords = new DeathRecordRepository(context);
             Chapels = new ChapelRepository(context);
             Coffins = new Repository<Coffin>(context);
             Locations = new Repository<Location>(context);
