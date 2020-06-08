@@ -72,7 +72,7 @@ namespace BP2_PSI
 
         private void OpenDeathRecordsWindow(object sender, RoutedEventArgs e)
         {
-            var view = new DeathRecordsView(_uow);
+            var view = new DeathRecordsView(_uowFactory);
             view.ShowDialog();
         }
 

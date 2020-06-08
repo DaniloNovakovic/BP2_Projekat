@@ -2,7 +2,7 @@
 
 namespace Persistance
 {
-    public class UoWFactory
+    public class UoWFactory : IUoWFactory
     {
         private readonly string _nameOrConnectionString;
 
@@ -11,12 +11,15 @@ namespace Persistance
             _nameOrConnectionString = nameOrConnectionString;
         }
 
-        public IUnitOfWork CreateNew()
+        public IUnitOfWork CreateNew(bool seedDatabase = false)
         {
             var context = new ApplicationDbContext(_nameOrConnectionString);
 
-            var bootstrapper = new ApplicationDbBootstrapper(context);
-            bootstrapper.Initialize();
+            if (seedDatabase)
+            {
+                var bootstrapper = new ApplicationDbBootstrapper(context);
+                bootstrapper.Initialize();
+            }
 
             return new UnitOfWork(context);
         }

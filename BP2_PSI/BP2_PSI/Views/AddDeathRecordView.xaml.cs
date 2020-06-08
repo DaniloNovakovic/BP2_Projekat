@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
 
@@ -27,12 +29,14 @@ namespace BP2_PSI.Views
             }
         }
 
-        public AddDeathRecordView(IEnumerable<Person> Persons, Action<DeathRecord> onSubmit = null)
+        public AddDeathRecordView(IEnumerable<Person> persons, Action<DeathRecord> onSubmit = null)
         {
+            DataContext = this;
+            Persons = new ObservableCollection<Person>(persons);
+
             InitializeComponent();
 
             _onSubmit = onSubmit;
-            this.Persons = new ObservableCollection<Person>(Persons);
         }
 
         private void OnSubmit(object sender, RoutedEventArgs e)

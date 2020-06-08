@@ -8,5 +8,10 @@ namespace Core.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime? BirthDate { get; set; } = DateTime.Now;
+
+        public override string ToString()
+        {
+            return $"{Id}-{FirstName},{LastName}";
+        }
     }
 }

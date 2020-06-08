@@ -3,6 +3,7 @@ using Core.Interfaces;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,15 +15,16 @@ namespace BP2_PSI.Views
     /// </summary>
     public partial class DeathRecordsView : Window
     {
-        private readonly IUnitOfWork _uow;
+        private readonly IUoWFactory _uowFactory;
+        private IEnumerable<Person> _alivePersons = new List<Person>();
 
-        public DeathRecordsView(IUnitOfWork uow)
+        public DeathRecordsView(IUoWFactory uowFactory)
         {
             DataContext = this;
 
             InitializeComponent();
 
-            _uow = uow;
+            _uowFactory = uowFactory;
         }
 
         public ObservableCollection<DeathRecord> DataItemList { get; set; } = new ObservableCollection<DeathRecord>();
@@ -31,14 +33,15 @@ namespace BP2_PSI.Views
 
         private async void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            var persons = await Task.Run(() => _uow.Persons.GetAlivePersons());
+            Log("Adding item...");
 
-            var view = new AddDeathRecordView(persons, onSubmit: deathRecord =>
+            var view = new AddDeathRecordView(_alivePersons, onSubmit: deathRecord =>
             {
-                Log("Adding item...");
-                _uow.DeathRecords.Add(deathRecord);
-                _uow.SaveChanges();
-                Log("Item added");
+                using (var uow = _uowFactory.CreateNew())
+                {
+                    uow.DeathRecords.Add(deathRecord);
+                    uow.SaveChanges();
+                }
             });
             view.ShowDialog();
 
@@ -56,27 +59,28 @@ namespace BP2_PSI.Views
 
             await Task.Run(() =>
             {
-                var entity = _uow.DeathRecords.Get(SelectedDataItem.PersonId);
-                _uow.DeathRecords.Remove(entity);
-                _uow.SaveChanges();
+                using (var uow = _uowFactory.CreateNew())
+                {
+                    var entity = uow.DeathRecords.Get(SelectedDataItem.PersonId);
+                    uow.DeathRecords.Remove(entity);
+                    uow.SaveChanges();
+                }
             });
-
-            Log("Item deleted");
 
             await RefreshAsync();
         }
 
         private async void editBtn_Click(object sender, RoutedEventArgs e)
         {
+            Log("Updating item...");
             var view = new UpdateDeathRecordView(SelectedDataItem, onSubmit: deathRecord =>
             {
-                Log("Updating item...");
-
-                var dr = _uow.DeathRecords.Get(deathRecord.PersonId);
-                dr.DeathDate = deathRecord.DeathDate;
-                _uow.SaveChanges();
-
-                Log("Item updated");
+                using (var uow = _uowFactory.CreateNew())
+                {
+                    var dr = uow.DeathRecords.Get(deathRecord.PersonId);
+                    dr.DeathDate = deathRecord.DeathDate;
+                    uow.SaveChanges();
+                }
             });
             view.ShowDialog();
 
@@ -93,18 +97,23 @@ namespace BP2_PSI.Views
         {
             Log("Refreshing data...");
 
-            var dbDeathRecords = await Task.Run(() => _uow.DeathRecords.GetAll());
-            DataItemList.Clear();
-            foreach (var item in dbDeathRecords)
+            using (var uow = _uowFactory.CreateNew())
             {
-                DataItemList.Add(item);
+                var dbDeathRecords = await Task.Run(() => uow.DeathRecords.GetAll());
+                DataItemList.Clear();
+                foreach (var item in dbDeathRecords)
+                {
+                    DataItemList.Add(item);
+                }
+                _alivePersons = await Task.Run(() => uow.Persons.GetAlivePersons());
+                addBtn.IsEnabled = _alivePersons.Any();
             }
-
             Log("Loaded");
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            addBtn.IsEnabled = false;
             await RefreshAsync();
         }
     }

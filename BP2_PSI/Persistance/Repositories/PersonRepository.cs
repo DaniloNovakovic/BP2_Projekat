@@ -17,7 +17,8 @@ namespace Persistance.Repositories
         public IEnumerable<Person> GetAlivePersons()
         {
             var deathRecordIds = _db.DeathRecords.Select(dr => dr.PersonId).ToList();
-            return _db.Persons.Where(p => deathRecordIds.Contains(p.Id)).ToList();
+            var persons = _db.Persons.ToList();
+            return persons.Where(p => !deathRecordIds.Any(id => id == p.Id)).ToList();
         }
     }
 }
