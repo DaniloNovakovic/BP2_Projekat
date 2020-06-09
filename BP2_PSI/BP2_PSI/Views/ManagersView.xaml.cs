@@ -83,7 +83,7 @@ namespace BP2_PSI.Views
         private async void editBtn_Click(object sender, RoutedEventArgs e)
         {
             Log("Updating item...");
-            var view = new UpdateWorkerView(_persons, SelectedDataItem, onSubmit: worker =>
+            var view = new UpdateWorkerView(SelectedDataItem.Worker, onSubmit: worker =>
             {
                 using (var uow = _uowFactory.CreateNew())
                 {

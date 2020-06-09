@@ -1,6 +1,7 @@
 ﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +21,39 @@ namespace BP2_PSI.Views.Forms
     /// </summary>
     public partial class AddManagerView : Window
     {
-        private IEnumerable<Person> persons;
-        private Action<Manager> onSubmit;
+        private Manager _data = new Manager();
+        private readonly Action<Manager> _onSubmit;
+        public Person SelectedPerson { get; set; }
+        public ObservableCollection<Person> Persons { get; set; }
 
-        public AddManagerView()
+        public Manager Manager
         {
-            InitializeComponent();
+            get => _data; set
+            {
+                _data = value;
+                WorktimeInput.Text = _data.Worker?.WorkTime ?? "";
+            }
         }
 
-        public AddManagerView(IEnumerable<Person> persons, Action<Manager> onSubmit)
+        public AddManagerView(IEnumerable<Person> persons, Action<Manager> onSubmit = null)
         {
-            this.persons = persons;
-            this.onSubmit = onSubmit;
+            DataContext = this;
+            Persons = new ObservableCollection<Person>(persons);
+
+            InitializeComponent();
+
+            _onSubmit = onSubmit;
+        }
+
+        private void OnSubmit(object sender, RoutedEventArgs e)
+        {
+            var worker = new Worker { PersonId = SelectedPerson.Id, Role = nameof(Manager) };
+            worker.WorkTime = WorktimeInput.Text;
+            Manager.Worker = worker;
+
+            _onSubmit?.Invoke(Manager);
+
+            Close();
         }
     }
 }

@@ -16,6 +16,18 @@ namespace Persistance.Repositories
             _db = context;
         }
 
+        public override Manager Add(Manager entity)
+        {
+            var worker = entity.Worker;
+            if (!_db.Workers.Any(w => w.PersonId == worker.PersonId))
+            {
+                worker = _db.Workers.Add(worker);
+                _db.SaveChanges();
+            }
+            entity.WorkerId = worker.PersonId;
+            return base.Add(entity);
+        }
+
         public override Manager Get(params object[] keyValues)
         {
             long key = (long)keyValues[0];

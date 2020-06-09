@@ -4,9 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BP2_PSI.Views.Forms"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="AddManagerView" Height="450" Width="800">
+        Title="Add Manager" Height="350" Width="400">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Select person" Margin="5" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="0" Grid.Column="1"  Margin="5"
+                  ItemsSource="{Binding Persons}"
+                  SelectedIndex="0"
+                  SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Worktime (from-to)" Margin="5" VerticalAlignment="Center" />
+        <TextBox x:Name="WorktimeInput" Grid.Row="1" Grid.Column="1" Text="8:00 - 12:30" Margin="5" VerticalAlignment="Center" />
+
+        <Button Grid.Row="2"  Grid.Column="1" Content="Submit" Width="100" Click="OnSubmit" />
     </Grid>
 </Window>
