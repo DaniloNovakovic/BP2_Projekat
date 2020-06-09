@@ -84,12 +84,16 @@ namespace BP2_PSI.Views
         private async void editBtn_Click(object sender, RoutedEventArgs e)
         {
             Log("Updating item...");
-            var view = new UpdateWorkerView(SelectedDataItem.Worker, onSubmit: worker =>
+            var view = new UpdateTechnicalStaffView(_managers, SelectedDataItem, onSubmit: staff =>
             {
                 using (var uow = _uowFactory.CreateNew())
                 {
-                    var dbWorker = uow.Workers.Get(worker.PersonId);
-                    dbWorker.WorkTime = worker.WorkTime;
+                    var dbWorker = uow.Workers.Get(staff.WorkerId);
+                    dbWorker.WorkTime = staff.Worker.WorkTime;
+
+                    var dbTechStaff = uow.TechnicalStaff.Get(staff.WorkerId);
+                    dbTechStaff.ManagerId = staff.ManagerId;
+
                     uow.SaveChanges();
                 }
             });
