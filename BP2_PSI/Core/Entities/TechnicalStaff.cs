@@ -13,5 +13,14 @@ namespace Core.Entities
 
         public long? ManagerId { get; set; }
         public Manager Manager { get; set; }
+
+        public override string ToString()
+        {
+            if (Worker != null)
+            {
+                return Worker.ToString();
+            }
+            return $"Id:{WorkerId}, ManagerId:{ManagerId}";
+        }
     }
 }

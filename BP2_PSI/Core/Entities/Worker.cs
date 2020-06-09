@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Entities
+﻿namespace Core.Entities
 {
     public class Worker
     {
@@ -17,5 +11,14 @@ namespace Core.Entities
         /// Tehnicko Osoblje ili Sef
         /// </summary>
         public string Role { get; set; }
+
+        public override string ToString()
+        {
+            if (Person != null)
+            {
+                return Person.ToString() + $", {Role}";
+            }
+            return $"Id:{PersonId}, {Role}, {WorkTime}";
+        }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Core.Entities
 {
@@ -12,5 +8,14 @@ namespace Core.Entities
         public Worker Worker { get; set; }
 
         public ICollection<TechnicalStaff> Employees { get; set; } = new HashSet<TechnicalStaff>();
+
+        public override string ToString()
+        {
+            if (Worker != null)
+            {
+                return Worker.ToString();
+            }
+            return $"Id:{WorkerId}";
+        }
     }
 }

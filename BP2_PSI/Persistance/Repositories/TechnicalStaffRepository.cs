@@ -1,22 +1,22 @@
 ﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Persistance.Repositories
 {
-    public class ManagerRepository : Repository<Manager>
+    public class TechnicalStaffRepository : Repository<TechnicalStaff>
     {
         private readonly ApplicationDbContext _db;
 
-        public ManagerRepository(ApplicationDbContext context) : base(context)
+        public TechnicalStaffRepository(ApplicationDbContext context) : base(context)
         {
             _db = context;
         }
 
-        public override Manager Add(Manager entity)
+        public override TechnicalStaff Add(TechnicalStaff entity)
         {
             var worker = entity.Worker;
             if (!_db.Workers.Any(w => w.PersonId == worker.PersonId))
@@ -28,28 +28,28 @@ namespace Persistance.Repositories
             return base.Add(entity);
         }
 
-        public override Manager Get(params object[] keyValues)
+        public override TechnicalStaff Get(params object[] keyValues)
         {
             long key = (long)keyValues[0];
-            return _db.Managers
+            return _db.TechnicalStaff
                 .Include(m => m.Worker)
-                .Include(m => m.Employees)
+                .Include(m => m.Manager)
                 .SingleOrDefault(m => m.WorkerId == key);
         }
 
-        public override Manager Get(Expression<Func<Manager, bool>> filter)
+        public override TechnicalStaff Get(Expression<Func<TechnicalStaff, bool>> filter)
         {
-            return _db.Managers
+            return _db.TechnicalStaff
                 .Include(m => m.Worker)
-                .Include(m => m.Employees)
+                .Include(m => m.Manager)
                 .FirstOrDefault(filter);
         }
 
-        public override IEnumerable<Manager> GetAll(Expression<Func<Manager, bool>> filter = null)
+        public override IEnumerable<TechnicalStaff> GetAll(Expression<Func<TechnicalStaff, bool>> filter = null)
         {
-            var query = _db.Managers
+            var query = _db.TechnicalStaff
                 .Include(m => m.Worker)
-                .Include(m => m.Employees)
+                .Include(m => m.Manager)
                 .AsQueryable();
 
             if (filter != null)
@@ -60,11 +60,11 @@ namespace Persistance.Repositories
             return query.ToList();
         }
 
-        public override void Remove(Manager entity)
+        public override void Remove(TechnicalStaff entity)
         {
             var dbWorker = _db.Workers.Find(entity.WorkerId);
-            var dbManager = _db.Managers.Find(entity.WorkerId);
-            _db.Managers.Remove(dbManager);
+            var dbStaff = _db.TechnicalStaff.Find(entity.WorkerId);
+            _db.TechnicalStaff.Remove(dbStaff);
             _db.SaveChanges();
             _db.Workers.Remove(dbWorker);
         }

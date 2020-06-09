@@ -46,7 +46,7 @@
             <Button x:Name="btnContracts" Content="Contracts" Grid.Row="1" Grid.Column="0" Click="OpenContractsWindow" />
             <Button x:Name="btnGraveSites" Content="Grave Sites" Grid.Row="1" Grid.Column="2" Click="OpenGraveSitesWindow" />
             <Button x:Name="btnManagers" Content="Managers" Grid.Row="2" Grid.Column="0" Click="OpenManagersWindow" />
-            <Button x:Name="btnTechStaff" Content="Employees" Grid.Row="2" Grid.Column="1" Click="OpenTechnicalStaffWindow" />
+            <Button x:Name="btnTechStaff" Content="Technical Staff" Grid.Row="2" Grid.Column="1" Click="OpenTechnicalStaffWindow" />
             <Button x:Name="btnChapels" Content="Chapels" Grid.Row="2" Grid.Column="2" Click="OpenChapelsWindow" />
         </Grid>
     </DockPanel>
