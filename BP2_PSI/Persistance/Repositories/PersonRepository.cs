@@ -20,5 +20,12 @@ namespace Persistance.Repositories
             var persons = _db.Persons.ToList();
             return persons.Where(p => !deathRecordIds.Any(id => id == p.Id)).ToList();
         }
+
+        public IEnumerable<Person> GetUnemployeedPersons()
+        {
+            var workerIds = _db.Workers.Select(w => w.PersonId).ToList();
+            var persons = _db.Persons.ToList();
+            return persons.Where(p => !workerIds.Any(id => id == p.Id)).ToList();
+        }
     }
 }

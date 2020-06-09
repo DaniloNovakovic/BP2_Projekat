@@ -52,7 +52,7 @@ namespace BP2_PSI
 
         private void SetBtnsAvailability(bool isEnabled)
         {
-            btnChapels.IsEnabled = btnWorkers.IsEnabled = btnContracts.IsEnabled = btnDeathRecords.IsEnabled
+            btnChapels.IsEnabled = btnManagers.IsEnabled = btnTechStaff.IsEnabled = btnContracts.IsEnabled = btnDeathRecords.IsEnabled
                 = btnFamilyMembers.IsEnabled = btnGraveSites.IsEnabled = btnPersons.IsEnabled = isEnabled;
         }
 
@@ -94,9 +94,15 @@ namespace BP2_PSI
             view.ShowDialog();
         }
 
-        private void OpenWorkersWindow(object sender, RoutedEventArgs e)
+        private void OpenManagersWindow(object sender, RoutedEventArgs e)
         {
-            var view = new WorkersView(_uow);
+            var view = new ManagersView(_uowFactory);
+            view.ShowDialog();
+        }
+
+        private void OpenTechnicalStaffWindow(object sender, RoutedEventArgs e)
+        {
+            var view = new TechnicalStaffView(_uowFactory);
             view.ShowDialog();
         }
 

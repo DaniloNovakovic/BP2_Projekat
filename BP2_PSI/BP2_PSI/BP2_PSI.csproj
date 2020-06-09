@@ -93,8 +93,14 @@
     <Compile Include="Views\Forms\AddFamilyMemberView.xaml.cs">
       <DependentUpon>AddFamilyMemberView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\AddManagerView.xaml.cs">
+      <DependentUpon>AddManagerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\AddOrUpdateChapelView.xaml.cs">
       <DependentUpon>AddOrUpdateChapelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\AddTechnicalStaffView.xaml.cs">
+      <DependentUpon>AddTechnicalStaffView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\UpdateDeathRecordView.xaml.cs">
       <DependentUpon>UpdateDeathRecordView.xaml</DependentUpon>
@@ -117,14 +123,23 @@
     <Compile Include="Views\Forms\UpdateFamilyMemberView.xaml.cs">
       <DependentUpon>UpdateFamilyMemberView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\UpdateTechnicalStaffView.xaml.cs">
+      <DependentUpon>UpdateTechnicalStaffView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\UpdateWorkerView.xaml.cs">
+      <DependentUpon>UpdateWorkerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GraveSitesView.xaml.cs">
       <DependentUpon>GraveSitesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagersView.xaml.cs">
+      <DependentUpon>ManagersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PersonsView.xaml.cs">
       <DependentUpon>PersonsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WorkersView.xaml.cs">
-      <DependentUpon>WorkersView.xaml</DependentUpon>
+    <Compile Include="Views\TechnicalStaffView.xaml.cs">
+      <DependentUpon>TechnicalStaffView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -146,7 +161,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Forms\AddManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Forms\AddOrUpdateChapelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\AddTechnicalStaffView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,7 +201,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Forms\UpdateTechnicalStaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\UpdateWorkerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GraveSitesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,7 +221,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WorkersView.xaml">
+    <Page Include="Views\TechnicalStaffView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

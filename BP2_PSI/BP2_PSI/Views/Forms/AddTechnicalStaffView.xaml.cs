@@ -1,5 +1,4 @@
-﻿using Core.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,23 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BP2_PSI.Views
+namespace BP2_PSI.Views.Forms
 {
     /// <summary>
-    /// Interaction logic for WorkersView.xaml
+    /// Interaction logic for AddTechnicalStaffView.xaml
     /// </summary>
-    public partial class WorkersView : Window
+    public partial class AddTechnicalStaffView : Window
     {
-        private IUnitOfWork uow;
-
-        public WorkersView()
+        public AddTechnicalStaffView()
         {
             InitializeComponent();
-        }
-
-        public WorkersView(IUnitOfWork uow)
-        {
-            this.uow = uow;
         }
     }
 }

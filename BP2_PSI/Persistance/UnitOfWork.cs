@@ -22,7 +22,7 @@ namespace Persistance
             Coffins = new Repository<Coffin>(context);
             Locations = new Repository<Location>(context);
             Workers = new Repository<Worker>(context);
-            Managers = new Repository<Manager>(context);
+            Managers = new ManagerRepository(context);
             TechnicalStaff = new Repository<TechnicalStaff>(context);
             Contracts = new Repository<Contract>(context);
             Urns = new Repository<Urn>(context);

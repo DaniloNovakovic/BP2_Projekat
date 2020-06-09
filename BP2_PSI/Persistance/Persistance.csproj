@@ -78,6 +78,7 @@
     <Compile Include="Repositories\DeathRecordRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\ManagerRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UoWFactory.cs" />
   </ItemGroup>
