@@ -59,5 +59,14 @@ namespace Persistance.Repositories
 
             return query.ToList();
         }
+
+        public override void Remove(Manager entity)
+        {
+            var dbWorker = _db.Workers.Find(entity.WorkerId);
+            var dbManager = _db.Managers.Find(entity.WorkerId);
+            _db.Managers.Remove(entity);
+            _db.SaveChanges();
+            _db.Workers.Remove(dbWorker);
+        }
     }
 }
