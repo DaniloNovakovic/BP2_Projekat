@@ -85,6 +85,7 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\ManagerRepository.cs" />
     <Compile Include="Repositories\TechnicalStaffRepository.cs" />
+    <Compile Include="Repositories\UrnRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UoWFactory.cs" />
   </ItemGroup>

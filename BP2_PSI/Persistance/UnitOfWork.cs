@@ -25,7 +25,7 @@ namespace Persistance
             Managers = new ManagerRepository(context);
             TechnicalStaff = new TechnicalStaffRepository(context);
             Contracts = new Repository<Contract>(context);
-            Urns = new Repository<Urn>(context);
+            Urns = new UrnRepository(context);
         }
 
         public IRepository<Chapel> Chapels { get; set; }
