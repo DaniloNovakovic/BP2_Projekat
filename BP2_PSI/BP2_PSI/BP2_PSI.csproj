@@ -87,6 +87,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\CoffinsView.xaml.cs">
+      <DependentUpon>CoffinsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\AddDeathRecordView.xaml.cs">
       <DependentUpon>AddDeathRecordView.xaml</DependentUpon>
     </Compile>
@@ -129,9 +132,6 @@
     <Compile Include="Views\Forms\UpdateWorkerView.xaml.cs">
       <DependentUpon>UpdateWorkerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GraveSitesView.xaml.cs">
-      <DependentUpon>GraveSitesView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ManagersView.xaml.cs">
       <DependentUpon>ManagersView.xaml</DependentUpon>
     </Compile>
@@ -140,6 +140,9 @@
     </Compile>
     <Compile Include="Views\TechnicalStaffView.xaml.cs">
       <DependentUpon>TechnicalStaffView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UrnsView.xaml.cs">
+      <DependentUpon>UrnsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -153,6 +156,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CoffinsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Forms\AddDeathRecordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,10 +216,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GraveSitesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ManagersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -222,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TechnicalStaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UrnsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

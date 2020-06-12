@@ -1,5 +1,4 @@
-﻿using Core.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,20 +15,13 @@ using System.Windows.Shapes;
 namespace BP2_PSI.Views
 {
     /// <summary>
-    /// Interaction logic for GraveSitesView.xaml
+    /// Interaction logic for CoffinsView.xaml
     /// </summary>
-    public partial class GraveSitesView : Window
+    public partial class CoffinsView : Window
     {
-        private IUnitOfWork uow;
-
-        public GraveSitesView()
+        public CoffinsView(Persistance.UoWFactory _uowFactory)
         {
             InitializeComponent();
-        }
-
-        public GraveSitesView(IUnitOfWork uow)
-        {
-            this.uow = uow;
         }
     }
 }

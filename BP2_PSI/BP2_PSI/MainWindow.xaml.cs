@@ -57,7 +57,7 @@ namespace BP2_PSI
         private void SetBtnsAvailability(bool isEnabled)
         {
             btnChapels.IsEnabled = btnManagers.IsEnabled = btnTechStaff.IsEnabled = btnContracts.IsEnabled = btnDeathRecords.IsEnabled
-                = btnFamilyMembers.IsEnabled = btnGraveSites.IsEnabled = btnPersons.IsEnabled = isEnabled;
+                = btnFamilyMembers.IsEnabled = btnUrns.IsEnabled = btnCoffins.IsEnabled = btnPersons.IsEnabled = isEnabled;
         }
 
         #region OpenWindowMethods
@@ -92,12 +92,6 @@ namespace BP2_PSI
             view.ShowDialog();
         }
 
-        private void OpenGraveSitesWindow(object sender, RoutedEventArgs e)
-        {
-            var view = new GraveSitesView(_uow);
-            view.ShowDialog();
-        }
-
         private void OpenManagersWindow(object sender, RoutedEventArgs e)
         {
             var view = new ManagersView(_uowFactory);
@@ -107,6 +101,18 @@ namespace BP2_PSI
         private void OpenTechnicalStaffWindow(object sender, RoutedEventArgs e)
         {
             var view = new TechnicalStaffView(_uowFactory);
+            view.ShowDialog();
+        }
+
+        private void OpenUrnsWindow(object sender, RoutedEventArgs e)
+        {
+            var view = new UrnsView(_uowFactory);
+            view.ShowDialog();
+        }
+
+        private void OpenCoffinsWindow(object sender, RoutedEventArgs e)
+        {
+            var view = new CoffinsView(_uowFactory);
             view.ShowDialog();
         }
 
