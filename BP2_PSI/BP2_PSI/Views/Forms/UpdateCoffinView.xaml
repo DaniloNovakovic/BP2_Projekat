@@ -4,9 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BP2_PSI.Views.Forms"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="UpdateCoffinView" Height="450" Width="800">
+        Title="Add Coffin" Height="400" Width="450">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Mark" Margin="5" VerticalAlignment="Center" />
+        <TextBox x:Name="MarkInput" Grid.Row="0" Text="18 Gauge Casket Coffin" Grid.Column="1" Margin="5" VerticalAlignment="Center" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Latitude" Margin="5" VerticalAlignment="Center" />
+        <xctk:DoubleUpDown x:Name="LatitudeInput" Value="45.571988" Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Longitude" Margin="5" VerticalAlignment="Center" />
+        <xctk:DoubleUpDown x:Name="LongitudeInput" Value="19.668292" Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" />
+
+        <Button Grid.Row="3"  Grid.Column="1" Content="Submit" Width="100" Click="OnSubmit" />
     </Grid>
 </Window>

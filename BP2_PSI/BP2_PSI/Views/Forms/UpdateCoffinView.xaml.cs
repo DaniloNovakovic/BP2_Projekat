@@ -20,18 +20,44 @@ namespace BP2_PSI.Views.Forms
     /// </summary>
     public partial class UpdateCoffinView : Window
     {
-        private Coffin selectedDataItem;
-        private Action<Coffin> onSubmit;
+        private Action<Coffin> _onSubmit;
 
-        public UpdateCoffinView()
+        private Coffin _data = new Coffin();
+
+        public Coffin Coffin
         {
-            InitializeComponent();
+            get => _data;
+            set
+            {
+                _data = value;
+                MarkInput.Text = _data.Mark;
+                LongitudeInput.Value = _data.GraveSite?.Location?.Longitude ?? 0;
+                LatitudeInput.Value = _data.GraveSite?.Location?.Latitude ?? 0;
+            }
         }
 
-        public UpdateCoffinView(Coffin selectedDataItem, Action<Coffin> onSubmit)
+        public UpdateCoffinView(Coffin coffinToEdit, Action<Coffin> onSubmit)
         {
-            this.selectedDataItem = selectedDataItem;
-            this.onSubmit = onSubmit;
+            DataContext = this;
+
+            InitializeComponent();
+
+            Coffin = coffinToEdit;
+            _onSubmit = onSubmit;
+        }
+
+        private void OnSubmit(object sender, RoutedEventArgs e)
+        {
+            Coffin.GraveSite.Location = new Location
+            {
+                Latitude = LatitudeInput.Value ?? 0,
+                Longitude = LongitudeInput.Value ?? 0
+            };
+            Coffin.Mark = MarkInput.Text;
+
+            _onSubmit?.Invoke(Coffin);
+
+            Close();
         }
     }
 }
