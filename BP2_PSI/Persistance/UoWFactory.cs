@@ -11,16 +11,18 @@ namespace Persistance
             _nameOrConnectionString = nameOrConnectionString;
         }
 
-        public IUnitOfWork CreateNew(bool seedDatabase = false)
+        public void Initialize()
         {
-            var context = new ApplicationDbContext(_nameOrConnectionString);
-
-            if (seedDatabase)
+            using (var context = new ApplicationDbContext(_nameOrConnectionString))
             {
                 var bootstrapper = new ApplicationDbBootstrapper(context);
                 bootstrapper.Initialize();
             }
+        }
 
+        public IUnitOfWork CreateNew()
+        {
+            var context = new ApplicationDbContext(_nameOrConnectionString);
             return new UnitOfWork(context);
         }
     }

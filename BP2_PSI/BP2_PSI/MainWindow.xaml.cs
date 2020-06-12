@@ -43,7 +43,11 @@ namespace BP2_PSI
 
             SetBtnsAvailability(false);
 
-            await Task.Run(() => _uow = _uowFactory.CreateNew());
+            await Task.Run(() =>
+            {
+                _uowFactory.Initialize();
+                _uow = _uowFactory.CreateNew();
+            });
 
             SetBtnsAvailability(true);
 

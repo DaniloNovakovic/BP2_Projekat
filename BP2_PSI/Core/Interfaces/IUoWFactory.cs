@@ -2,6 +2,8 @@
 {
     public interface IUoWFactory
     {
-        IUnitOfWork CreateNew(bool seedDatabase = false);
+        void Initialize();
+
+        IUnitOfWork CreateNew();
     }
 }
