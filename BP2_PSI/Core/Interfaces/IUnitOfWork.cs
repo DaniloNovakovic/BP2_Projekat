@@ -9,7 +9,7 @@ namespace Core.Interfaces
         IRepository<FamilyMember> FamilyMembers { get; set; }
         IPersonRepository Persons { get; set; }
         IRepository<GraveSite> GraveSites { get; set; }
-        IRepository<DeathRecord> DeathRecords { get; set; }
+        IDeathRecordRepository DeathRecords { get; set; }
         IRepository<Chapel> Chapels { get; set; }
         IRepository<Coffin> Coffins { get; set; }
         IRepository<Location> Locations { get; set; }

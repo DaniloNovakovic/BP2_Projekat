@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace Persistance.Repositories
 {
-    public class DeathRecordRepository : Repository<DeathRecord>
+    public class DeathRecordRepository : Repository<DeathRecord>, IDeathRecordRepository
     {
         private readonly ApplicationDbContext _db;
 
@@ -37,6 +38,13 @@ namespace Persistance.Repositories
             }
 
             return query.ToList();
+        }
+
+        public IEnumerable<DeathRecord> GetAllUnburied()
+        {
+            var buriedRecordIds = _db.GraveSites.Select(gs => gs.DeathRecordId).ToList();
+            var records = _db.DeathRecords.Include(r => r.Person).ToList();
+            return records.Where(r => !buriedRecordIds.Any(buriedId => buriedId == r.PersonId));
         }
     }
 }

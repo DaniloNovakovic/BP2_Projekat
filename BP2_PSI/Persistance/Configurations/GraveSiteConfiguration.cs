@@ -10,7 +10,7 @@ namespace Persistance.Configurations
             HasKey(gs => gs.DeathRecordId);
 
             HasRequired(gs => gs.DeathRecord)
-                .WithOptional(dr => dr.GraveSite)
+                .WithOptional()
                 .WillCascadeOnDelete();
 
             Property(gs => gs.Type).IsRequired();

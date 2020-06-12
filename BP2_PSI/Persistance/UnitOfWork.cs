@@ -31,7 +31,7 @@ namespace Persistance
         public IRepository<Chapel> Chapels { get; set; }
         public IRepository<Coffin> Coffins { get; set; }
         public IRepository<Contract> Contracts { get; set; }
-        public IRepository<DeathRecord> DeathRecords { get; set; }
+        public IDeathRecordRepository DeathRecords { get; set; }
         public IRepository<FamilyMember> FamilyMembers { get; set; }
         public IRepository<GraveSite> GraveSites { get; set; }
         public IRepository<Location> Locations { get; set; }

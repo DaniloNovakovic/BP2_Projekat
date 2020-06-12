@@ -113,7 +113,7 @@ namespace BP2_PSI.Views
                     DataItemList.Add(item);
                 }
 
-                _deathRecords = await Task.Run(() => uow.DeathRecords.GetAll());
+                _deathRecords = await Task.Run(() => uow.DeathRecords.GetAllUnburied());
                 addBtn.IsEnabled = _deathRecords.Any();
             }
             Log("Loaded");

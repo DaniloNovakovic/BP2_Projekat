@@ -72,6 +72,10 @@
     <Compile Include="Migrations\202006071831394_ChangedGraveSiteIdInDeathRecordToNullable.designer.cs">
       <DependentUpon>202006071831394_ChangedGraveSiteIdInDeathRecordToNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.cs" />
+    <Compile Include="Migrations\202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.designer.cs">
+      <DependentUpon>202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ChapelRepository.cs" />
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006071831394_ChangedGraveSiteIdInDeathRecordToNullable.resx">
       <DependentUpon>202006071831394_ChangedGraveSiteIdInDeathRecordToNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.resx">
+      <DependentUpon>202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
