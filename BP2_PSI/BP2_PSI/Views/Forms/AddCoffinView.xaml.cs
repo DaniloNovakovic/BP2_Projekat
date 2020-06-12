@@ -1,6 +1,7 @@
 ﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +21,49 @@ namespace BP2_PSI.Views.Forms
     /// </summary>
     public partial class AddCoffinView : Window
     {
-        private IEnumerable<DeathRecord> deathRecords;
-        private Action<Coffin> onSubmit;
+        private Action<Coffin> _onSubmit;
+        public DeathRecord SelectedDeathRecord { get; set; }
+        public ObservableCollection<DeathRecord> DeathRecords { get; set; }
 
-        public AddCoffinView()
+        private Coffin _data = new Coffin();
+
+        public Coffin Coffin
         {
-            InitializeComponent();
+            get => _data;
+            set
+            {
+                _data = value;
+                MarkInput.Text = _data.Mark;
+                LongitudeInput.Value = _data.GraveSite?.Location?.Longitude ?? 0;
+                LatitudeInput.Value = _data.GraveSite?.Location?.Latitude ?? 0;
+            }
         }
 
         public AddCoffinView(IEnumerable<DeathRecord> deathRecords, Action<Coffin> onSubmit)
         {
-            this.deathRecords = deathRecords;
-            this.onSubmit = onSubmit;
+            DataContext = this;
+            DeathRecords = new ObservableCollection<DeathRecord>(deathRecords);
+
+            InitializeComponent();
+
+            _onSubmit = onSubmit;
+        }
+
+        private void OnSubmit(object sender, RoutedEventArgs e)
+        {
+            var graveSite = new GraveSite { DeathRecordId = SelectedDeathRecord.PersonId, Type = nameof(Coffin) };
+            graveSite.Location = new Location
+            {
+                Latitude = LatitudeInput.Value ?? 0,
+                Longitude = LongitudeInput.Value ?? 0
+            };
+
+            Coffin.GraveSite = graveSite;
+            Coffin.Mark = MarkInput.Text;
+
+            _onSubmit?.Invoke(Coffin);
+
+            Close();
         }
     }
 }

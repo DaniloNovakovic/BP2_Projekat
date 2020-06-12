@@ -19,7 +19,7 @@ namespace Persistance
             GraveSites = new Repository<GraveSite>(context);
             DeathRecords = new DeathRecordRepository(context);
             Chapels = new ChapelRepository(context);
-            Coffins = new Repository<Coffin>(context);
+            Coffins = new CoffinRepository(context);
             Locations = new Repository<Location>(context);
             Workers = new Repository<Worker>(context);
             Managers = new ManagerRepository(context);
