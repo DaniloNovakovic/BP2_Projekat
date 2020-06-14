@@ -14,5 +14,10 @@
         /// Relation type of family member with the deceased one (ex. "sister")
         /// </summary>
         public string RelationType { get; set; }
+
+        public override string ToString()
+        {
+            return $"L:{MemberId}, D:{RelatedToId}, T:{RelationType}";
+        }
     }
 }

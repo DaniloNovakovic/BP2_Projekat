@@ -1,6 +1,7 @@
 ﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +21,42 @@ namespace BP2_PSI.Views.Forms
     /// </summary>
     public partial class UpdateContractView : Window
     {
-        private Contract selectedDataItem;
-        private Action<Contract> onSubmit;
+        private Contract _data = new Contract();
+        private readonly Action<Contract> _onSubmit;
 
-        public UpdateContractView()
+        public FuneralType SelectedFuneralType { get; set; }
+        public ObservableCollection<FuneralType> FuneralTypes { get; set; }
+
+        public Contract Contract
         {
-            InitializeComponent();
+            get => _data; set
+            {
+                _data = value;
+                FuneralStartTimeInput.Text = _data.FuneralStartTime.Value.ToString(FuneralStartTimeInput.FormatString);
+            }
         }
 
-        public UpdateContractView(Contract selectedDataItem, Action<Contract> onSubmit)
+        public UpdateContractView(Contract contractToEdit, Action<Contract> onSubmit = null)
         {
-            this.selectedDataItem = selectedDataItem;
-            this.onSubmit = onSubmit;
+            DataContext = this;
+
+            var types = Enum.GetValues(typeof(FuneralType)).Cast<FuneralType>().ToList();
+            FuneralTypes = new ObservableCollection<FuneralType>(types);
+
+            InitializeComponent();
+
+            Contract = contractToEdit;
+            _onSubmit = onSubmit;
+        }
+
+        private void OnSubmit(object sender, RoutedEventArgs e)
+        {
+            Contract.FuneralType = SelectedFuneralType;
+            Contract.FuneralStartTime = DateTime.Parse(FuneralStartTimeInput.Text);
+
+            _onSubmit?.Invoke(Contract);
+
+            Close();
         }
     }
 }

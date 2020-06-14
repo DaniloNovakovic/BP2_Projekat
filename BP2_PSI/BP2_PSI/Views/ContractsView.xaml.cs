@@ -123,7 +123,7 @@ namespace BP2_PSI.Views
                 _familyMembers = await Task.Run(() => uow.FamilyMembers.GetAll());
                 _chapels = await Task.Run(() => uow.Chapels.GetAll());
 
-                addBtn.IsEnabled = _familyMembers.Any() && _managers.Any();
+                addBtn.IsEnabled = _familyMembers.Any() && _managers.Any() && _chapels.Any();
             }
             Log("Loaded");
         }

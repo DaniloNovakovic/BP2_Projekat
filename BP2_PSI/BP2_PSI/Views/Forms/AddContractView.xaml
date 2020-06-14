@@ -4,9 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BP2_PSI.Views.Forms"
+       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="AddContractView" Height="450" Width="800">
+        Title="Add Tech Staff" Height="400" Width="500">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Select family member" Margin="5" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="0" Grid.Column="1"  Margin="5"
+                  ItemsSource="{Binding FamilyMembers}"
+                  SelectedIndex="0"
+                  SelectedItem="{Binding SelectedFamilyMember, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Select manager" Margin="5" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="1" Grid.Column="1"  Margin="5"
+                  ItemsSource="{Binding Managers}"
+                  SelectedIndex="0"
+                  SelectedItem="{Binding SelectedManager, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Select chapel" Margin="5" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="2" Grid.Column="1"  Margin="5"
+                  ItemsSource="{Binding Chapels}"
+                  SelectedIndex="0"
+                  SelectedItem="{Binding SelectedChapel, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Funeral Date" Margin="5" VerticalAlignment="Center" />
+        <xctk:DateTimePicker x:Name="FuneralStartTimeInput" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" />
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Select funeral type" Margin="5" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="4" Grid.Column="1"  Margin="5"
+                  ItemsSource="{Binding FuneralTypes}"
+                  SelectedIndex="0"
+                  SelectedItem="{Binding SelectedFuneralType, Mode=TwoWay}" />
+
+        <Button Grid.Row="5"  Grid.Column="1" Content="Submit" Width="100" Click="OnSubmit" />
     </Grid>
 </Window>
