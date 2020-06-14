@@ -93,6 +93,9 @@
     <Compile Include="Views\Forms\AddCoffinView.xaml.cs">
       <DependentUpon>AddCoffinView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\AddContractView.xaml.cs">
+      <DependentUpon>AddContractView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\AddDeathRecordView.xaml.cs">
       <DependentUpon>AddDeathRecordView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,9 @@
     </Compile>
     <Compile Include="Views\Forms\UpdateCoffinView.xaml.cs">
       <DependentUpon>UpdateCoffinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\UpdateContractView.xaml.cs">
+      <DependentUpon>UpdateContractView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\UpdateDeathRecordView.xaml.cs">
       <DependentUpon>UpdateDeathRecordView.xaml</DependentUpon>
@@ -176,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Forms\AddContractView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Forms\AddDeathRecordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Forms\UpdateCoffinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Forms\UpdateContractView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

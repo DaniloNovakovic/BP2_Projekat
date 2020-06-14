@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BP2_PSI.Views"
         mc:Ignorable="d"
-        Title="ContractsView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Technical Staff" Height="450" Width="600"
+        Loaded="Window_Loaded">
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Name="statusBar" />
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Button x:Name="addBtn"  Content="Add"  Width="100"  Margin="10" Click="addBtn_Click" />
+                <Button x:Name="editBtn" Content="Edit"  IsEnabled="False" Width="100"  Margin="10" Click="editBtn_Click" />
+                <Button x:Name="deleteBtn" Content="Delete" IsEnabled="False" Margin="10" Width="100" Click="deleteBtn_Click" />
+            </StackPanel>
+
+            <DataGrid Grid.Row="1" Margin="10" ItemsSource="{Binding DataItemList}" SelectedItem="{Binding SelectedDataItem, Mode=TwoWay}"
+                      AutoGenerateColumns="False" IsReadOnly="True" BorderThickness="2" BorderBrush="LightGray"
+                      SelectionChanged="DataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="FamilyMemberId"  Binding="{Binding FamilyMemberId}" />
+                    <DataGridTextColumn Width="*" Header="ManagerId"  Binding="{Binding ManagerId}" />
+                    <DataGridTextColumn Width="*" Header="ChapelId"  Binding="{Binding ChapelId}" />
+                    <DataGridTextColumn Width="*" Header="FuneralType"  Binding="{Binding FuneralType}" />
+                    <DataGridTextColumn Width="*" Header="FuneralStartTime"  Binding="{Binding FuneralStartTime}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
 </Window>

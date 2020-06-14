@@ -88,7 +88,7 @@ namespace BP2_PSI
 
         private void OpenContractsWindow(object sender, RoutedEventArgs e)
         {
-            var view = new ContractsView(_uow);
+            var view = new ContractsView(_uowFactory);
             view.ShowDialog();
         }
 
