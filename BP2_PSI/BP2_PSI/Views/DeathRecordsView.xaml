@@ -31,7 +31,6 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*" Header="PersonId"  Binding="{Binding PersonId}" />
                     <DataGridTextColumn Width="*" Header="DeathDate"  Binding="{Binding DeathDate}" />
-                    <DataGridTextColumn Width="*" Header="GraveSiteId"  Binding="{Binding GraveSiteId}" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
