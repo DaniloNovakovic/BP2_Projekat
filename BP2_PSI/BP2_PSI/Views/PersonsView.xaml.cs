@@ -54,9 +54,17 @@ namespace BP2_PSI.Views
 
             await Task.Run(() =>
             {
-                var entity = _uow.Persons.Get(SelectedDataItem.Id);
-                _uow.Persons.Remove(entity);
-                _uow.SaveChanges();
+                try
+                {
+                    var entity = _uow.Persons.Get(SelectedDataItem.Id);
+                    _uow.Persons.Remove(entity);
+                    _uow.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.InnerException?.Message);
+                    MessageBox.Show($"Failed to delete {SelectedDataItem}.{Environment.NewLine}Try deleting connected entities first.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
 
             Log("Item deleted");

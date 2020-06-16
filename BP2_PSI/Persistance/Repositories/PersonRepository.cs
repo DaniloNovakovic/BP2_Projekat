@@ -27,5 +27,14 @@ namespace Persistance.Repositories
             var persons = _db.Persons.ToList();
             return persons.Where(p => !workerIds.Any(id => id == p.Id)).ToList();
         }
+
+        public override void Remove(Person entity)
+        {
+            var members = _db.FamilyMembers.Where(fm => fm.MemberId == entity.Id);
+            _db.FamilyMembers.RemoveRange(members);
+            _db.SaveChanges();
+
+            _db.Persons.Remove(entity);
+        }
     }
 }
