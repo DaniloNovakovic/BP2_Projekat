@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -36,6 +37,10 @@ namespace Persistance.Repositories
         public override Chapel Get(params object[] keyValues)
         {
             long key = (long)keyValues[0];
+
+            //var id = new SqlParameter("@id", key);
+            //return _db.Database.SqlQuery<Chapel>("dbo.SelectChapelById @id", id).SingleOrDefault();
+
             return _db.Chapels.Include(c => c.Location).Single(c => c.Id == key);
         }
 

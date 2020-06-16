@@ -76,6 +76,10 @@
     <Compile Include="Migrations\202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.designer.cs">
       <DependentUpon>202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006160746222_AddSelectChapelStoredProcedure.cs" />
+    <Compile Include="Migrations\202006160746222_AddSelectChapelStoredProcedure.designer.cs">
+      <DependentUpon>202006160746222_AddSelectChapelStoredProcedure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ChapelRepository.cs" />
@@ -108,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.resx">
       <DependentUpon>202006121130394_RemovedGraveSiteIdColumnFromDeathRecordsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006160746222_AddSelectChapelStoredProcedure.resx">
+      <DependentUpon>202006160746222_AddSelectChapelStoredProcedure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
