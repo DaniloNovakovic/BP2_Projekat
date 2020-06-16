@@ -46,5 +46,14 @@ namespace Persistance.Repositories
             var records = _db.DeathRecords.Include(r => r.Person).ToList();
             return records.Where(r => !buriedRecordIds.Any(buriedId => buriedId == r.PersonId));
         }
+
+        public override void Remove(DeathRecord entity)
+        {
+            var members = _db.FamilyMembers.Where(fm => fm.RelatedToId == entity.PersonId);
+            _db.FamilyMembers.RemoveRange(members);
+            _db.SaveChanges();
+
+            _db.DeathRecords.Remove(entity);
+        }
     }
 }
